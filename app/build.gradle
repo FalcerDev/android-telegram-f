@@ -1,0 +1,129 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "dev.falcer.telegramf"
+        minSdkVersion 16
+        targetSdkVersion 29
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+
+    def multiDex_version = "1.0.3"
+    implementation "com.android.support:multidex:$multiDex_version"
+
+    def navigation_version = "2.2.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    def lifecycleViewModel_version = "2.3.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleViewModel_version"
+    def lifecycleScope_version = "2.3.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleScope_version"
+    def liveData_version = "2.3.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$liveData_version"
+
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    kapt "androidx.room:room-compiler:$room_version"
+
+    def paging_version = "2.1.2"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    // For Kotlin use paging-runtime-ktx
+
+    def work_version = "2.3.4"
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    def viewPager_version = "1.0.0"
+    implementation "androidx.viewpager2:viewpager2:$viewPager_version"
+
+    def mpAndroidChart_version = "v3.1.0"
+    implementation "com.github.PhilJay:MPAndroidChart:$mpAndroidChart_version"
+
+    def dagger_version = "2.27"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    def material_version = "1.2.0-alpha05"
+    implementation "com.google.android.material:material:$material_version"
+
+    def moshi_version = "1.9.2"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    def retrofit_version = "2.7.2"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    def timber_version = "4.7.1"
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // def smoothBottomBar_version = "1.7"
+    // implementation "com.github.ibrahimsn98:SmoothBottomBar:$smoothBottomBar_version"
+
+    def viewPagerDotIndicator = "4.1.2"
+    implementation "com.tbuonomo.andrui:viewpagerdotsindicator:$viewPagerDotIndicator"
+
+    def glide_version = "4.11.0"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    def shape_version = "1.4.7"
+    implementation "com.github.florent37:shapeofview:$shape_version"
+
+    def lottie_version = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottie_version"
+
+    def analytics_version = "17.3.0"
+    implementation "com.google.firebase:firebase-analytics:$analytics_version"
+    def crashlytics_version = "17.0.0-beta03"
+    implementation "com.google.firebase:firebase-crashlytics:$crashlytics_version"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "androidx.room:room-testing:$room_version"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation "androidx.work:work-testing:$work_version"
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
